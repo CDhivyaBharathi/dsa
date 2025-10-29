@@ -47,6 +47,21 @@ bstNode* findMin(bstNode *root){
 
 }
 
+bstNode* search(bstNode* root,int key){
+    if (root == NULL){
+        return NULL;
+    }
+    if(root->val == key){
+        return root;
+    }
+    if (key < root->val){
+        return search(root->left,key);
+    } else if (key > root->val){
+        return search(root->right,key);
+    }
+    return root;
+}
+
 bstNode* delete(bstNode *root,int key){
     if (root == NULL){
         return NULL;
@@ -77,20 +92,7 @@ bstNode* delete(bstNode *root,int key){
     return root;
 }
 
-bstNode* search(bstNode* root,int key){
-    if (root == NULL){
-        return NULL;
-    }
-    if(root->val == key){
-        return root;
-    }
-    if (key < root->val){
-        return search(root->left,key);
-    } else if (key > root->val){
-        return search(root->right,key);
-    }
-    return root;
-}
+
 
 int main(){
     bstNode *root = NULL;
